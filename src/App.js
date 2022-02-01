@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, Route, Routes } from 'react-router';
+import 'rsuite/dist/rsuite.min.css'
+import SignIn from "./pages/SignIn";
+import Home from "./pages/Home";
+import './styles/main.scss'
 
 function App() {
+  const profile = false
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Routes>
+      <Route path="/signin" element={!profile ? <SignIn/> : <Navigate to="/" />}/>
+      <Route path="/" element={profile ? <Home/> : <Navigate to="/signin" />}/>
+    </Routes>
+  )
 }
 
 export default App;
