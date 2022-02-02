@@ -3,6 +3,7 @@ import { Button, Drawer, Message, toaster } from 'rsuite';
 import Dashboard from '.';
 import { useMediaQuery, useModalState } from '../../misc/custom-hooks';
 import { auth } from '../../misc/firebase';
+import DashboardIcon from '@rsuite/icons/Dashboard';
 
 const DashboardToggle = () => {
     const { isOpen, open, close } = useModalState() 
@@ -22,7 +23,7 @@ const DashboardToggle = () => {
     return (
         <>
             <Button block color="blue" appearance="primary" onClick={open}>
-                Dashboard
+                <DashboardIcon/> Dashboard
             </Button>
             <Drawer full={isMobile} open={isOpen} onClose={close} placement="left">
                 <Dashboard onSignOut={onSignOut}/>
