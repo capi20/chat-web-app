@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from 'firebase/compat/app'
-import { Button, Col, Container, Grid, Message, Panel, Row } from 'rsuite';
+import { Button, Col, Container, Grid, Message, Panel, Row, toaster } from 'rsuite';
 import {auth, database} from '../misc/firebase'
 
 function SignIn() {
@@ -16,11 +16,15 @@ function SignIn() {
                     createdAt: firebase.database.ServerValue.TIMESTAMP
                 })
             }
-            <Message showIcon type="success" header="Signed In"/>
+            toaster.push(<Message showIcon type="success">Signed in</Message>, {
+                placement: 'topCenter',
+                duration: 4000
+            });
         } catch(err) {
-            <Message showIcon type="error" header="Error">
-                {err.message}
-            </Message>
+            toaster.push(<Message showIcon type="error">{err.message}</Message>, {
+                placement: 'topCenter',
+                duration: 4000
+            });
         }
     }
 
