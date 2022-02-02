@@ -1,9 +1,9 @@
 import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { useProfile } from '../context/profile.context';
 import { Container, Loader } from 'rsuite';
 
-function PrivateRoute({...routeProps}) {
+function PrivateRoute({ children, ...routeProps}) {
     const {isLoading, profile} = useProfile()
 
     if (isLoading && !profile) {
@@ -19,9 +19,9 @@ function PrivateRoute({...routeProps}) {
     }
 
     return (
-        <Routes>
-            <Route {...routeProps}></Route>
-        </Routes>
+        <>
+            {children}
+        </>
     )
 }
 

@@ -11,8 +11,8 @@ function App() {
   return (
     <ProfileProvider>
       <Routes>
-        <Route path="/signin" element={<PublicRoute path="/signin" element={<SignIn/>}></PublicRoute>}/>
-        <Route path="/" element={<PrivateRoute path="/" element={<Home/>}></PrivateRoute>}/>
+        <Route path="/signin" element={<PublicRoute path="/signin"><SignIn/></PublicRoute>}/>
+        <Route path="/" element={<PrivateRoute path="/"><Home/></PrivateRoute>}/>
       </Routes>
     </ProfileProvider>
   )
