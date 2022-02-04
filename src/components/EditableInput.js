@@ -31,6 +31,7 @@ const EditableInput = ({
                 placement: 'topCenter',
                 duration: 4000
             });
+            return
         }
 
         if (trimmed !== initialValue) {
