@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom'
+import { Redirect } from 'react-router';
 import { useProfile } from '../context/profile.context';
 import { Container, Loader } from 'rsuite';
 
@@ -15,7 +15,7 @@ function PublicRoute({ children, ...routeProps}) {
     } 
 
     if (!isLoading && profile) {
-        return <Navigate to="/"/>
+        return <Redirect to="/"/>
     }
     
     return (
