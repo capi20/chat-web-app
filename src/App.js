@@ -12,7 +12,9 @@ function App() {
     <ProfileProvider>
       <Routes>
         <Route path="/signin" element={<PublicRoute path="/signin"><SignIn/></PublicRoute>}/>
-        <Route path="/" element={<PrivateRoute path="/"><Home/></PrivateRoute>}/>
+        <Route path="/" element={<PrivateRoute path="/"><Home/></PrivateRoute>}>
+          <Route path="chat/:id"/>
+        </Route>
       </Routes>
     </ProfileProvider>
   )
