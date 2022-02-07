@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useCurrentRoom } from '../../../context/current-room.context';
-import ArrowLeftIcon from '@rsuite/icons/ArrowLeft';
+import ArrowLeftLineIcon from '@rsuite/icons/ArrowLeftLine';
 import { useMediaQuery } from '../../../misc/custom-hooks';
 import { Link } from 'react-router-dom';
 import { ButtonToolbar } from 'rsuite';
@@ -14,9 +14,9 @@ const Top = () => {
     return (
       <div>
         <div className="d-flex justify-content-between align-items-center">
-          <h4>
+          <h4 className="text-disappear">
             <Link to="/">
-              <ArrowLeftIcon 
+              <ArrowLeftLineIcon 
                 className={isMobile ? 'd-inline-block p-0 mr-2 text-blue link-unstyled font-mid' : 'd-none'}/>
             </Link>
             <span className="text-disappear">{name}</span>
