@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Divider, Drawer, Message, toaster } from 'rsuite';
 import { useProfile } from '../../context/profile.context';
 import { database } from '../../misc/firebase';
+import { getUserUpdates } from '../../misc/helpers';
 import EditableInput from '../EditableInput';
 import AvatarUploadBtn from './AvatarUploadBtn';
 
@@ -9,17 +10,27 @@ const Dashboard = ({onSignOut}) => {
     const {profile} = useProfile()
 
     const onSave = async newData => {
-        const userName = database.ref(`/profiles/${profile.uid}`).child('name')
-
         try {
-            await userName.set(newData)
+            const updates = await getUserUpdates(
+                profile.uid,
+                'name',
+                newData,
+                database
+            )
+
+            console.log(updates)
+
+            await database.ref().update(updates)
 
             toaster.push(<Message showIcon type="success">Nickname has been updated</Message>, {
                 placement: 'topCenter',
                 duration: 4000
             });
-        } catch {
-
+        } catch(err) {
+            toaster.push(<Message showIcon type="error">{err.message}</Message>, {
+                placement: 'topCenter',
+                duration: 4000
+            });
         }
     }
 
