@@ -1,4 +1,5 @@
 import React from 'react';
+import { Divider } from 'rsuite';
 import TimeAgo from 'timeago-react';
 import ProfileAvatar from '../dashboard/ProfileAvatar';
 
@@ -7,7 +8,7 @@ const RoomItem = ({ room }) => {
     return (
         <div>
             <div className="d-flex justify-content-between align-items-center">
-                <h3 className="text-disappear">{name}</h3>
+                <h4 className="text-disappear font-normal">{name}</h4>
                 <TimeAgo 
                     datetime={lastMessage ? new Date(lastMessage.createdAt) : new Date(createdAt)} 
                     className="font-normal text-black-45"/>

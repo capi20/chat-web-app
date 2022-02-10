@@ -27,12 +27,15 @@ const ChatRoomList = ({ aboveElHeight }) => {
                 rooms.length > 0 
                 && rooms.map(room => {
                     return (
-                        <Nav.Item 
-                            href={`/chat/${room.id}`}
-                            key={room.id} 
-                            eventKey={`/chat/${room.id}`}>
-                            <RoomItem room={room}/>
-                        </Nav.Item>
+                        <>
+                            <Nav.Item 
+                                href={`/chat/${room.id}`}
+                                key={room.id} 
+                                eventKey={`/chat/${room.id}`}>
+                                <RoomItem room={room}/>
+                            </Nav.Item>
+                            <hr className='m-0 mt-2'/>
+                        </>
                     )
                 })}
         </Nav>
