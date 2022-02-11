@@ -1,5 +1,4 @@
 import React from 'react';
-import { Divider } from 'rsuite';
 import TimeAgo from 'timeago-react';
 import ProfileAvatar from '../dashboard/ProfileAvatar';
 

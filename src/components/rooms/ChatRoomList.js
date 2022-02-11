@@ -25,9 +25,9 @@ const ChatRoomList = ({ aboveElHeight }) => {
                 )}
                 {rooms && 
                 rooms.length > 0 
-                && rooms.map(room => {
+                && rooms.map((room, i) => {
                     return (
-                        <>
+                        <React.Fragment key={i}>
                             <Nav.Item 
                                 href={`/chat/${room.id}`}
                                 key={room.id} 
@@ -35,7 +35,7 @@ const ChatRoomList = ({ aboveElHeight }) => {
                                 <RoomItem room={room}/>
                             </Nav.Item>
                             <hr className='m-0 mt-2'/>
-                        </>
+                        </React.Fragment>
                     )
                 })}
         </Nav>
