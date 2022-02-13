@@ -99,3 +99,11 @@ $chat-b: 65px;
     }
   }
 }
+
+.presence-status {
+  position: absolute;
+  transform: translate(34px, 13px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}

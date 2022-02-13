@@ -26,46 +26,48 @@ const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
     const isLiked = likes && Object.keys(likes).includes(auth.currentUser.uid)
 
     return (
-        <li className={`padded mb-1 ${isHovered ? 'bg-black-02' : ''}`} ref={selfRef}>
-            <div className="d-flex align-items-center font-bolder mb-1">
-                <PresenceDot uid={author.uid}/>
-                <ProfileAvatar src={author.avatar} name={author.name} className="ml-1" size="xs"/>
-                <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 ml-1 text-black">
-                    {canGrantAdmin && (
-                        <Button block 
-                            appearance="primary" 
-                            color="blue" 
-                            onClick={() => handleAdmin(author.uid)}>
-                            {isMsgAuthorAdmin 
-                            ? 'Remove admin permission'
-                            : 'Give admin in this room'}
-                        </Button>
-                    )}
-                </ProfileInfoBtnModal>
-                <TimeAgo 
-                    datetime={createdAt} 
-                    className="font-normal text-black-45 ml-2"/>
+        <li className={`padded d-flex align-items-center ${isHovered ? 'bg-black-02' : ''}`} ref={selfRef}>
+            <ProfileAvatar src={author.avatar} name={author.name} className="ml-1" size="md"/>
+            <PresenceDot uid={author.uid}/>
+            <div className="ml-2">
+                <div className="d-flex align-items-center font-bolder">
+                    <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 font-bolder">
+                        {canGrantAdmin && (
+                            <Button block 
+                                appearance="primary" 
+                                color="blue" 
+                                onClick={() => handleAdmin(author.uid)}>
+                                {isMsgAuthorAdmin 
+                                ? 'Remove admin permission'
+                                : 'Give admin in this room'}
+                            </Button>
+                        )}
+                    </ProfileInfoBtnModal>
+                    <TimeAgo 
+                        datetime={createdAt} 
+                        className="font-normal text-black-45 ml-2"/>
 
-                <IconBtnControl
-                    {...(isLiked ? {color: 'red'} : {})}
-                    isVisible={canShowIcons}
-                    iconName="heart"
-                    tooltip="Like this message"
-                    onClick={() => handleLike(message.id)}
-                    badgeContent={likeCount}
-                />
-
-                {isAuthor &&
                     <IconBtnControl
+                        {...(isLiked ? {color: 'red'} : {})}
                         isVisible={canShowIcons}
-                        iconName="close"
-                        tooltip="Delete this message"
-                        onClick={() => handleDelete(message.id)}
+                        iconName="heart"
+                        tooltip="Like this message"
+                        onClick={() => handleLike(message.id)}
+                        badgeContent={likeCount}
                     />
-                }
-            </div>
-            <div>
-                <span className="word-break-all">{text}</span>
+
+                    {isAuthor &&
+                        <IconBtnControl
+                            isVisible={canShowIcons}
+                            iconName="close"
+                            tooltip="Delete this message"
+                            onClick={() => handleDelete(message.id)}
+                        />
+                    }
+                </div>
+                <div className="text-black font-small">
+                    <span className="word-break-all">{text}</span>
+                </div>
             </div>
         </li>
     )

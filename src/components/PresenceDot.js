@@ -33,10 +33,10 @@ const PresenceDot = ({uid}) => {
             controlId="control-id-hover" 
             trigger="hover" 
             speaker={  
-            <Tooltip>
-                {getText(presence)}
-            </Tooltip>}>
-                <Badge className="cursor-pointer" style={{backgroundColor: getColor(presence)}}/>
+                <Tooltip>
+                    {getText(presence)}
+                </Tooltip>}>
+                <div className="cursor-pointer presence-status" style={{backgroundColor: getColor(presence)}}/>
         </Whisper>
     )
 };
