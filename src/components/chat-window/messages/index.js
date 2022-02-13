@@ -126,7 +126,7 @@ const Messages = () => {
 
   return (
     <ul className="msg-list custom-scroll">
-      {isChatEmpty && <li>No messages yet</li>}
+      {isChatEmpty && <li className="text-center">No messages yet</li>}
       {canShowMessages && 
       messages.map(
         msg => <MessageItem 

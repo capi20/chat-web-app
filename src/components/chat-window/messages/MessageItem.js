@@ -26,46 +26,50 @@ const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
     const isLiked = likes && Object.keys(likes).includes(auth.currentUser.uid)
 
     return (
-        <li className={`padded mb-2 mw-70 d-flex align-items-center ${isAuthor ? 'flex-end' : ''}`} ref={selfRef}>
+        <li className={`mb-1 mw-70 d-flex align-items-center ${isAuthor ? 'flex-end' : ''}`} ref={selfRef}>
             <div className="pos-rel">
                 <ProfileAvatar src={author.avatar} name={author.name} className="ml-1" size="md"/>
                 <PresenceDot uid={author.uid}/>
             </div>
-            <div className="ml-2 text-msg bg-black-02">
-                <div className="d-flex align-items-center font-bolder">
-                    <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 font-bolder">
-                        {canGrantAdmin && (
-                            <Button block 
-                                appearance="primary" 
-                                color="blue" 
-                                onClick={() => handleAdmin(author.uid)}>
-                                {isMsgAuthorAdmin 
-                                ? 'Remove admin permission'
-                                : 'Give admin in this room'}
-                            </Button>
-                        )}
-                    </ProfileInfoBtnModal>
-                    <TimeAgo 
-                        datetime={createdAt} 
-                        className="font-normal text-black-45 ml-2"/>
+            <div className="ml-1 msg-wrapper bg-black-02">
+                <div className="d-flex align-items-center justify-content-between font-bolder">
+                    <div className="d-flex align-items-center">
+                        <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 font-bolder">
+                            {canGrantAdmin && (
+                                <Button block 
+                                    appearance="primary" 
+                                    color="blue" 
+                                    onClick={() => handleAdmin(author.uid)}>
+                                    {isMsgAuthorAdmin 
+                                    ? 'Remove admin permission'
+                                    : 'Give admin in this room'}
+                                </Button>
+                            )}
+                        </ProfileInfoBtnModal>
+                        <TimeAgo 
+                            datetime={createdAt} 
+                            className="font-normal text-black-45 ml-2"/>
+                    </div>
 
-                    <IconBtnControl
-                        {...(isLiked ? {color: 'red'} : {})}
-                        isVisible={canShowIcons}
-                        iconName="heart"
-                        tooltip="Like this message"
-                        onClick={() => handleLike(message.id)}
-                        badgeContent={likeCount}
-                    />
-
-                    {isAuthor &&
+                    <div className="d-flex">
                         <IconBtnControl
+                            {...(isLiked ? {color: 'red'} : {})}
                             isVisible={canShowIcons}
-                            iconName="close"
-                            tooltip="Delete this message"
-                            onClick={() => handleDelete(message.id)}
+                            iconName="heart"
+                            tooltip="Like this message"
+                            onClick={() => handleLike(message.id)}
+                            badgeContent={likeCount}
                         />
-                    }
+
+                        {isAuthor &&
+                            <IconBtnControl
+                                isVisible={canShowIcons}
+                                iconName="close"
+                                tooltip="Delete this message"
+                                onClick={() => handleDelete(message.id)}
+                            />
+                        }
+                    </div>
                 </div>
                 <div className="text-black font-small">
                     <span className="word-break-all">{text}</span>

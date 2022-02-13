@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
 import { useCurrentRoom } from '../../../context/current-room.context';
-import ArowBackIcon from '@rsuite/icons/ArowBack';
 import { FaArrowLeft } from 'react-icons/fa'
 import { useMediaQuery } from '../../../misc/custom-hooks';
 import { Link } from 'react-router-dom';
-import { ButtonToolbar } from 'rsuite';
+import { ButtonToolbar, Divider } from 'rsuite';
 import RoomInfoBtnModal from './RoomInfoBtnModal'
 import EditRoomBtnDrawer from './EditRoomBtnDrawer';
 
@@ -14,7 +13,7 @@ const Top = () => {
     const isMobile = useMediaQuery('(max-width: 992px)')
 
     return (
-      <div className="padded mt-3">
+      <div className="padded br-bottom">
         <div className="d-flex justify-content-between align-items-center">
           <h4 className="text-disappear">
             <Link to="/">

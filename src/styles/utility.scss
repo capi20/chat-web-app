@@ -134,6 +134,10 @@ $indent_3: 15px;
   white-space: nowrap;
 }
 
+.br-bottom {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
 .br-circle {
   border-radius: 50%;
 }
@@ -155,7 +159,7 @@ $indent_3: 15px;
 }
 
 .font-small {
-  font-size: 1rem;
+  font-size: 1.6rem;
 }
 
 .font-mid {

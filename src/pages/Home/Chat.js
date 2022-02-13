@@ -41,7 +41,6 @@ const Chat = () => {
             <div className="chat-top">
                 <ChatTop/>
             </div>
-            <hr/>
             <div className="chat-middle">
                 <Messages/>
             </div>

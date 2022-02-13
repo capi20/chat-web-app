@@ -13,7 +13,23 @@ body {
   background-color: #fcfcfc;
 }
 
-html,
+html {
+  height: 100%;
+  font-size: 62.5%;
+  /* 1rem = 10px; 10/16=62.5% */
+}
+
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
 body,
 #root,
 #root > div {
@@ -55,7 +71,7 @@ body,
   justify-content: center;
 }
 
-$chat-t: 75px;
+$chat-t: 100px;
 $chat-b: 65px;
 
 .chat-top {
@@ -71,7 +87,7 @@ $chat-b: 65px;
 }
 
 .msg-list {
-  padding: 0;
+  padding: 1rem;
   margin: 0;
   height: 100%;
   overflow-y: auto;
@@ -109,9 +125,9 @@ $chat-b: 65px;
   border-radius: 50%;
 }
 
-.text-msg {
+.msg-wrapper {
   display: inline;
   padding: 10px;
   border: 1px solid transparent;
-  border-radius: 5px;
+  border-radius: 15px;
 }
