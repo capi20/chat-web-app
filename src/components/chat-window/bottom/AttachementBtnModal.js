@@ -17,7 +17,7 @@ const AttachementBtnModal = ({ afterUpload }) => {
     const onChange = (fileArr) => {
         const filtered = fileArr.filter(el => el.blobFile.size <= MAX_FILE_SIZE).slice(0,5)
 
-        return filtered
+        setFileList(filtered)
     }
 
     const onUpload = async() => {
