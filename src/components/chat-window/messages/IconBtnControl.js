@@ -1,7 +1,6 @@
-import { Icon } from '@rsuite/icons';
 import React from 'react';
 import { Badge, IconButton, Tooltip, Whisper } from 'rsuite';
-import PublicOpinionIcon from '@rsuite/icons/PublicOpinion';
+import { FaHeart, FaRegTimesCircle } from 'react-icons/fa'
 
 const ConditionalBadge = ({condition, children}) => {
     return condition ? <Badge content={condition}>{children}</Badge> : children
@@ -22,12 +21,12 @@ const IconBtnControl = ({isVisible, iconName, tooltip, onClick, badgeContent, ..
                     speaker={<Tooltip>{tooltip}</Tooltip>}
                 >
                     <IconButton
-                        appearance="primary"
+                        appearance={ iconName === 'heart' && badgeContent > 0 ? 'primary' : 'default'}
                         {...props}
                         onClick={onClick}
                         circle
-                        size="sm"
-                        icon={<PublicOpinionIcon/>}
+                        size="md"
+                        icon={iconName === 'heart' ? <FaHeart/> : <FaRegTimesCircle/>}
                     />
 
                 </Whisper>
