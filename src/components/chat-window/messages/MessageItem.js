@@ -8,9 +8,21 @@ import { Button } from 'rsuite';
 import { auth } from '../../../misc/firebase';
 import { useHover, useMediaQuery } from '../../../misc/custom-hooks';
 import IconBtnControl from './IconBtnControl';
+import ImgBtnModal from './ImgBtnModal';
+
+const renderFileMessage = file => {
+    if (file.contentType.includes('image')) {
+        return (
+            <div className="height-200">
+                <ImgBtnModal src={file.url} fileName={file.name}/>
+            </div>
+        )
+    }
+    return <a href={file.url}>Download {file.name}</a>
+}
 
 const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
-    const { author, createdAt, text, likes, likeCount } = message
+    const { author, createdAt, text, file, likes, likeCount } = message
 
     const [selfRef, isHovered] = useHover()
     const isMobile = useMediaQuery(('(max-width: 992px)'))
@@ -34,7 +46,7 @@ const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
             <div className="ml-1 msg-wrapper bg-black-02">
                 <div className="d-flex align-items-center justify-content-between font-bolder">
                     <div className="d-flex align-items-center">
-                        <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 font-bolder">
+                        <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 font-bolder text-black">
                             {canGrantAdmin && (
                                 <Button block 
                                     appearance="primary" 
@@ -72,7 +84,8 @@ const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
                     </div>
                 </div>
                 <div className="text-black font-small">
-                    <span className="word-break-all">{text}</span>
+                    {text && <span className="word-break-all">{text}</span>}
+                    {file && renderFileMessage(file)}
                 </div>
             </div>
         </li>
