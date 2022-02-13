@@ -21,11 +21,10 @@ const IconBtnControl = ({isVisible, iconName, tooltip, onClick, badgeContent, ..
                     speaker={<Tooltip>{tooltip}</Tooltip>}
                 >
                     <IconButton
-                        appearance={ iconName === 'heart' && badgeContent > 0 ? 'primary' : 'default'}
+                        circle
                         {...props}
                         onClick={onClick}
-                        circle
-                        size="md"
+                        size="sm"
                         icon={iconName === 'heart' ? <FaHeart/> : <FaRegTimesCircle/>}
                     />
 

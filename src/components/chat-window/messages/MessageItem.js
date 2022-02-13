@@ -26,10 +26,12 @@ const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
     const isLiked = likes && Object.keys(likes).includes(auth.currentUser.uid)
 
     return (
-        <li className={`padded d-flex align-items-center ${isHovered ? 'bg-black-02' : ''}`} ref={selfRef}>
-            <ProfileAvatar src={author.avatar} name={author.name} className="ml-1" size="md"/>
-            <PresenceDot uid={author.uid}/>
-            <div className="ml-2">
+        <li className={`padded mb-2 mw-70 d-flex align-items-center ${isAuthor ? 'flex-end' : ''}`} ref={selfRef}>
+            <div className="pos-rel">
+                <ProfileAvatar src={author.avatar} name={author.name} className="ml-1" size="md"/>
+                <PresenceDot uid={author.uid}/>
+            </div>
+            <div className="ml-2 text-msg bg-black-02">
                 <div className="d-flex align-items-center font-bolder">
                     <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 font-bolder">
                         {canGrantAdmin && (

@@ -14,7 +14,7 @@ const Top = () => {
     const isMobile = useMediaQuery('(max-width: 992px)')
 
     return (
-      <div className="padded">
+      <div className="padded mt-3">
         <div className="d-flex justify-content-between align-items-center">
           <h4 className="text-disappear">
             <Link to="/">
@@ -29,7 +29,7 @@ const Top = () => {
           </ButtonToolbar>
         </div>
 
-        <div className="d-flex justify-content-between align-itmes-center">
+        <div className="d-flex justify-content-between align-items-center">
           <span>todo</span>
           <RoomInfoBtnModal/>
         </div>

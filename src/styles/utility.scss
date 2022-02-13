@@ -55,6 +55,10 @@ $indent_3: 15px;
   width: 100%;
 }
 
+.mw-70 {
+  max-width: 70%;
+}
+
 .mw-100 {
   max-width: 100%;
 }
@@ -109,6 +113,11 @@ $indent_3: 15px;
 
 .justify-content-center {
   justify-content: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+  margin-left: auto;
 }
 
 .padded {
@@ -253,4 +262,8 @@ $indent_3: 15px;
 
 .pb-3 {
   padding-bottom: $indent_3;
+}
+
+.pos-rel {
+  position: relative;
 }
