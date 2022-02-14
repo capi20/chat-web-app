@@ -13,12 +13,12 @@ import ImgBtnModal from './ImgBtnModal';
 const renderFileMessage = file => {
     if (file.contentType.includes('image')) {
         return (
-            <div className="height-200">
+            <div>
                 <ImgBtnModal src={file.url} fileName={file.name}/>
             </div>
         )
     }
-    return <a href={file.url}>Download {file.name}</a>
+    return <a href={file.url} target="_blank">Download {file.name}</a>
 }
 
 const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
