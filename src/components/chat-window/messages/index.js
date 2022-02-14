@@ -4,6 +4,7 @@ import { Message, toaster } from 'rsuite';
 import { auth, database } from '../../../misc/firebase';
 import { transformToArrWithId } from '../../../misc/helpers';
 import MessageItem from './MessageItem'
+import { storage } from '../../../misc/firebase'
 
 const Messages = () => {
   const { chatId } = useParams()
@@ -84,7 +85,7 @@ const Messages = () => {
     });
   }, [])
 
-  const handleDelete = useCallback(async (msgId) => {
+  const handleDelete = useCallback(async (msgId, file) => {
     if (!window.confirm('Delete this message?')) {
       return
     }
@@ -116,10 +117,22 @@ const Messages = () => {
       });
 
     } catch(err) {
-      toaster.push(<Message showIcon type="error">{err.message}</Message>, {
+      return toaster.push(<Message showIcon type="error">{err.message}</Message>, {
         placement: 'topCenter',
         duration: 4000
       });
+    }
+
+    if (file) {
+      try {
+        const fileRef = storage.refFromURL(file.url)
+        await fileRef.delete()
+      } catch(err) {
+        toaster.push(<Message showIcon type="error">{err.message}</Message>, {
+          placement: 'topCenter',
+          duration: 4000
+        });
+      }
     }
 
   }, [chatId, messages])
