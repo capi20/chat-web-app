@@ -3,7 +3,7 @@ import { useCurrentRoom } from '../../../context/current-room.context';
 import { FaArrowLeft } from 'react-icons/fa'
 import { useMediaQuery } from '../../../misc/custom-hooks';
 import { Link } from 'react-router-dom';
-import { ButtonToolbar, Divider } from 'rsuite';
+import { ButtonToolbar } from 'rsuite';
 import RoomInfoBtnModal from './RoomInfoBtnModal'
 import EditRoomBtnDrawer from './EditRoomBtnDrawer';
 

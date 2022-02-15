@@ -44,8 +44,6 @@ export async function getUserUpdates(userId, keyToUpdate, value, db) {
         updates[`/rooms/${roomSnap.key}/lastMessage/author/${keyToUpdate}`] = value
     })
 
-    console.log('updates', updates)
-
     return updates
 } 
 

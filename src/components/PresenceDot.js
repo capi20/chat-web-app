@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Tooltip, Whisper } from 'rsuite';
+import { Tooltip, Whisper } from 'rsuite';
 import { usePresence } from '../misc/custom-hooks';
 
 const getColor = (presence) => {
