@@ -15,7 +15,7 @@ const ChatRoomList = ({ aboveElHeight }) => {
             appearance="subtle"
             vertical
             reversed
-            className="overflow-y-scroll custom-scroll"
+            className="overflow-y-scroll custom-scroll mt-3"
             style={{
                 height: `calc(100% - ${aboveElHeight}px)`
             }}
@@ -34,7 +34,7 @@ const ChatRoomList = ({ aboveElHeight }) => {
                                 eventKey={`/chat/${room.id}`}>
                                 <RoomItem room={room}/>
                             </Nav.Item>
-                            <hr className='m-0 mt-2'/>
+                            <hr className='m-0 mt-2 mb-2'/>
                         </React.Fragment>
                     )
                 })}

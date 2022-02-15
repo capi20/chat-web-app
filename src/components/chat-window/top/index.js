@@ -9,6 +9,7 @@ import EditRoomBtnDrawer from './EditRoomBtnDrawer';
 
 const Top = () => {
     const name = useCurrentRoom(v => v.name)
+    const description = useCurrentRoom(v => v.description)
     const isAdmin = useCurrentRoom(v => v.isAdmin)
     const isMobile = useMediaQuery('(max-width: 992px)')
 
@@ -29,7 +30,7 @@ const Top = () => {
         </div>
 
         <div className="d-flex justify-content-between align-items-center">
-          <span>todo</span>
+          <span>{description}</span>
           <RoomInfoBtnModal/>
         </div>
       </div>

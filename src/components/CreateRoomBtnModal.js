@@ -3,6 +3,7 @@ import { Button, Form, Input, Message, Modal, Schema, toaster } from 'rsuite';
 import firebase from 'firebase/compat/app'
 import { useModalState } from '../misc/custom-hooks';
 import { auth, database } from '../misc/firebase';
+import { FaPlus } from 'react-icons/fa';
 
 const { StringType } = Schema.Types
 
@@ -66,10 +67,11 @@ const CreateRoomBtnModal = () => {
     }
     
     return (
-        <div className='mt-1'>
-            <Button block appearance="primary" color="green" onClick={open}>
-                Create new chat room
+        <>
+            <Button appearance="primary" onClick={open}>
+                New room
             </Button>
+
 
             <Modal open={isOpen} onClose={close}>
                 <Modal.Header>
@@ -93,7 +95,7 @@ const CreateRoomBtnModal = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </div>
+        </>
     )
 };
 

@@ -10,7 +10,6 @@ const messagesRef = database.ref('/messages')
 
 function shouldScrollToBottom(node, threshold = 30) {
   const percentage = (100 * node.scrollTop) / (node.scrollHeight - node.clientHeight) || 0
-
   return percentage > threshold
 }
 
