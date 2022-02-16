@@ -49,13 +49,13 @@ const Dashboard = ({onSignOut}) => {
             <Drawer.Body>
                 <h3>Hey, {profile.name}</h3>
                 <Divider/>
+                <AvatarUploadBtn/>
                 <EditableInput
                     name="nickname"
                     initialValue={profile.name}
                     onSave={onSave}
                     label={<h6 className='mb-2'>Nickname</h6>}
                 />
-                <AvatarUploadBtn/>
             </Drawer.Body>
         </>
     )

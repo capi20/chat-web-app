@@ -54,23 +54,25 @@ const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
                 <PresenceDot uid={author.uid}/>
             </div>
             <div className="ml-1 msg-wrapper bg-black-02">
-                <div className="d-flex align-items-center justify-content-between font-bolder">
+                <div className="d-flex align-items-center font-bolder">
                     <div className="d-flex align-items-center">
-                        <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 font-bolder text-black">
-                            {canGrantAdmin && (
-                                <Button block 
-                                    appearance="primary" 
-                                    color="blue" 
-                                    onClick={() => handleAdmin(author.uid)}>
-                                    {isMsgAuthorAdmin 
-                                    ? 'Remove admin permission'
-                                    : 'Give admin in this room'}
-                                </Button>
-                            )}
-                        </ProfileInfoBtnModal>
+                        {!isAuthor && (
+                            <ProfileInfoBtnModal profile={author} appearance="link" className="p-0 mr-2 font-bolder text-black">
+                                {canGrantAdmin && (
+                                    <Button block 
+                                        appearance="primary" 
+                                        color="blue" 
+                                        onClick={() => handleAdmin(author.uid)}>
+                                        {isMsgAuthorAdmin 
+                                        ? 'Remove admin permission'
+                                        : 'Give admin in this room'}
+                                    </Button>
+                                )}
+                            </ProfileInfoBtnModal>
+                        )}
                         <TimeAgo 
                             datetime={createdAt} 
-                            className="font-normal text-black-45 ml-2"/>
+                            className="font-normal text-black-45"/>
                     </div>
 
                     <div className="d-flex">

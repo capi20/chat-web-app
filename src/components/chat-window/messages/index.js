@@ -4,6 +4,7 @@ import { Button, Message, toaster } from 'rsuite';
 import { auth, database, storage } from '../../../misc/firebase';
 import { groupBy, transformToArrWithId } from '../../../misc/helpers';
 import MessageItem from './MessageItem'
+import CalendarIcon from '@rsuite/icons/Calendar';
 
 const PAGE_SIZE = 15
 const messagesRef = database.ref('/messages')
@@ -189,7 +190,10 @@ const Messages = () => {
     let items = []
 
     Object.keys(groups).forEach((date) => {
-      items.push(<li key={date} className="text-center mb-1 padded">{date}</li>)
+      items.push(<li key={date} 
+          className="mb-1 padded d-flex align-items-center justify-content-center">
+            <CalendarIcon className="mr-1"/> {date}
+          </li>)
 
       const msgs = groups[date].map(msg => (
         <MessageItem 

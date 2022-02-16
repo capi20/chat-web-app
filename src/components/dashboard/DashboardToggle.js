@@ -33,15 +33,12 @@ const DashboardToggle = () => {
 
     return (
         <>
-            {/* <Button block color="blue" appearance="primary" onClick={open}>
-                <DashboardIcon/> Dashboard
-            </Button> */}
             <ProfileAvatar 
                 src={profile.avatar} 
                 name={profile.name} 
                 size="lg" 
                 onClick={open}
-                className="cursor-pointer d-inline-block"/>
+                className="cursor-pointer"/>
             <Drawer full={isMobile} open={isOpen} onClose={close} placement="left">
                 <Dashboard onSignOut={onSignOut}/>
             </Drawer>

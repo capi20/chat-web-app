@@ -3,7 +3,6 @@ import { Button, Form, Input, Message, Modal, Schema, toaster } from 'rsuite';
 import firebase from 'firebase/compat/app'
 import { useModalState } from '../misc/custom-hooks';
 import { auth, database } from '../misc/firebase';
-import { FaPlus } from 'react-icons/fa';
 
 const { StringType } = Schema.Types
 
