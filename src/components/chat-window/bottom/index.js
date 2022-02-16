@@ -111,8 +111,8 @@ const Bottom = () => {
   }, [chatId, profile])
 
   return (
-    <div>
-      <InputGroup>
+    <>
+      <InputGroup className="height-50">
         <AttachementBtnModal afterUpload={afterUpload}/>
         <AudioMsgBtn afterUpload={afterUpload}/>
         <Input 
@@ -128,7 +128,7 @@ const Bottom = () => {
           <SendIcon/>
         </InputGroup.Button>
       </InputGroup>
-    </div>
+    </>
   )
 };
 

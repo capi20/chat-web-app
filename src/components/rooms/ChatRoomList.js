@@ -10,6 +10,8 @@ const ChatRoomList = ({ aboveElHeight }) => {
 
     const location = useLocation()
 
+    console.log(aboveElHeight)
+
     return (
         <Nav
             appearance="subtle"
@@ -17,7 +19,7 @@ const ChatRoomList = ({ aboveElHeight }) => {
             reversed
             className="overflow-y-scroll custom-scroll mt-3"
             style={{
-                height: `calc(100% - ${aboveElHeight}px)`
+                height: `calc(100% - ${aboveElHeight}px - 16px)`
             }}
             activeKey={location.pathname}>
                 {!rooms && (

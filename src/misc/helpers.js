@@ -31,16 +31,11 @@ export async function getUserUpdates(userId, keyToUpdate, value, db) {
 
     const [mSnap, rSnap] = await Promise.all([getMsgs, getRooms])
 
-    console.log(typeof(mSnap))
-    console.log(rSnap)
-
     mSnap.forEach(msgSnap => {
-        console.log(msgSnap)
         updates[`/messages/${msgSnap.key}/author/${keyToUpdate}`] = value
     })
 
     rSnap.forEach(roomSnap => {
-        console.log(roomSnap)
         updates[`/rooms/${roomSnap.key}/lastMessage/author/${keyToUpdate}`] = value
     })
 

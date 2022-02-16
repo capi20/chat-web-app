@@ -2,6 +2,7 @@ import React from 'react';
 import firebase from 'firebase/compat/app'
 import { Button, Col, Container, Grid, Message, Panel, Row, toaster } from 'rsuite';
 import {auth, database} from '../misc/firebase'
+import { FaGoogle } from 'react-icons/fa'
 
 function SignIn() {
 
@@ -47,11 +48,8 @@ function SignIn() {
                                 <p>Progressive chat platform</p>    
                             </div>  
                             <div className='mt-3'>
-                                <Button block color="blue" appearance="primary" onClick={onFacebookSignIn}>
-                                    Continue with Facebook
-                                </Button>
-                                <Button block color="green" appearance="primary" onClick={onGoogleSignIn}>
-                                    Continue with Google
+                                <Button block className="d-flex align-items-center justify-content-center" color="green" appearance="primary" onClick={onGoogleSignIn}>
+                                    <FaGoogle className="mr-2"/> Continue with Google
                                 </Button>
                             </div>            
                         </Panel>

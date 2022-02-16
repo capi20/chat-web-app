@@ -3,14 +3,7 @@ import 'firebase/compat/auth'
 import 'firebase/compat/database'
 import 'firebase/compat/storage'
 
-const config = {
-    apiKey: "AIzaSyBVCAaSIpRWGSGRCYugei9Ea5eB6m_-ujE",
-    authDomain: "chat-web-app-e97c8.firebaseapp.com",
-    projectId: "chat-web-app-e97c8",
-    storageBucket: "chat-web-app-e97c8.appspot.com",
-    messagingSenderId: "1067756103075",
-    appId: "1:1067756103075:web:892b941fa3e18c8fcba616"
-};
+// PASTE YOUR FIREBASE APP CONFIG HERE
 
 const app = firebase.initializeApp(config)
 

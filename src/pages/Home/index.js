@@ -29,7 +29,7 @@ function Home() {
               </Route>
               <Route>
                 {isDesktop && (
-                  <Col xs={24} md={8} className='h-100'>
+                  <Col xs={24} md={16} className='h-100'>
                     <h3 className="text-center mt-page">Please select chat</h3>
                   </Col>
                 )}
